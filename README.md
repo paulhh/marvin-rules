@@ -12,7 +12,7 @@ Marvin Rules is distributed under the Apache V2 license (http://www.apache.org/l
 
 ### Source
 
-The distribution contains most of the sources as jar files. The source code of Flowable can be found on https://github.com/paulhh/marvin-rules.
+The source code of Marvin Rules can be found on https://github.com/paulhh/marvin-rules.
 
 Loading marvin.pl will include all the necessary code. 
 
