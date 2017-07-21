@@ -1,0 +1,75 @@
+/* Concept definitions */
+concept:: person,
+properties::
+	age,
+	gender.
+
+concept:: vehicle,
+properties::
+	age,
+	make,
+	model,
+relationships::
+	driver and relation of person.
+
+concept:: collision,
+properties::
+	weather,
+	adjuster.
+	
+concept:: sedan, 
+	kind:: vehicle.
+concept:: van,
+	kind:: vehicle.
+concept:: fourbyfour,
+	kind:: vehicle.
+
+/* Some objects */
+van with make of ford and age of 12.
+fourbyfour with make of bmw and age of 1.
+sedan with make of toyota and age of 5.
+
+person with name of 'John Smith' and age of 21 and gender of male.
+
+collision with weather of dry.
+
+/* Some rules */
+rule:: young_age,
+	if::
+		Driver isa person with age of less_than 25,
+	then::
+		Driver isa person with risk of high.
+	
+rule:: bmw,
+	if::
+		V isa fourbyfour with make of bmw,
+	then::
+		V isa vehicle with risk of medium.
+
+rule:: sensible,
+	if::
+		V isa sedan with age of greater_than 2
+		and age of less_than 6,
+	then::
+		V isa vehicle with risk of low.
+
+rule:: combine1,
+	if::
+		V isa vehicle with risk of medium and driver of D also
+		D isa person with gender of male and age of less_than 35,
+	then::
+		D isa person with risk of high.
+
+rule:: dry_high_risk,
+	if::
+		Driver isa person with risk of high also
+		A isa collision with weather of dry,
+	then::
+		A isa collision with adjuster of needed.
+
+rule:: wet_med_risk,
+	if::
+		Driver isa person with risk of medium also
+		A isa collision with weather of wet,
+	then::
+		A isa collision with adjuster of needed.
